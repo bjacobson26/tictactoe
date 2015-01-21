@@ -1,16 +1,13 @@
 // images 
 var images = {
-	player1image: "tictactoe_images/sun.gif",
-	player2image: "tictactoe_images/moon.gif"
+	player1image: "tictactoe_images/yoda.gif",
+	player2image: "tictactoe_images/darth6.gif"
 }
-// initialized to false, when win or cats game, change to true. 
-var gameOver = false;
 
 
 // Turn Selecting
 var player1turn = false;
 var player2turn = false;
-
 var turn = 1;	
 var turnSelect = function(){
 	if(turn % 2 == 1){
@@ -23,10 +20,75 @@ var turnSelect = function(){
 	}
 }
 
+var player1Win = function(){
+	alert("YODA WINS");
+	location.reload();
+}
 
+var player2Win = function(){
+	alert("DARTH VADER WINS");
+	location.reload();
+}
 
-var player1;
-var player2;
+// WIN LOGIC 
+var checkWin = function(){
+	// horizontal wins
+	if((box1[0] === "player1") && (box2[0]==="player1") && (box3[0]==="player1")){
+		player1Win();
+	}
+	else if ((box1[0] === "player2") && (box2[0]==="player2") && (box3[0]==="player2")){
+		player2Win();
+	}
+	else if ((box4[0]==="player1") && (box5[0]==="player1") && (box6[0]==="player1")){
+		player1Win();
+	}
+	else if ((box4[0]==="player2") && (box5[0]==="player2") && (box6[0]==="player2")){
+		player2Win();
+	}
+	else if((box7[0]==="player1") && (box8[0]==="player1") && (box9[0]==="player1")){
+		player1Win();
+	}
+	else if((box7[0]==="player2") && (box8[0]==="player2") && (box9[0]==="player2")){
+		player2Win();
+	}
+
+	// vertical wins
+
+	else if((box1[0]==="player1") && (box4[0]==="player1") && (box7[0]==="player1")){
+		player1Win();
+	}
+	else if((box1[0]==="player2") && (box4[0]==="player2") && (box7[0]==="player2")){
+		player2Win();
+	}
+	else if ((box2[0]==="player1") && (box5[0]==="player1") && (box8[0]==="player1")){
+		player1Win();
+	}
+	else if ((box2[0]==="player2") && (box5[0]==="player2") && (box8[0]==="player2")){
+		player2Win();
+	}
+	else if ((box3[0]==="player1") && (box6[0]==="player1") && (box9[0]==="player1")){
+		player1Win();
+	}
+	else if ((box3[0]==="player2") && (box6[0]==="player2") && (box9[0]==="player2")){
+		player2Win();
+	}
+
+	// diagonal
+
+	else if ((box1[0]==="player1") && (box5[0]==="player1") && (box9[0]==="player1")){
+		player1Win();
+	}
+	else if ((box1[0]==="player2") && (box5[0]==="player2") && (box9[0]==="player2")){
+		player2Win();
+	}
+	else if ((box3[0]==="player1") && (box5[0]==="player1") && (box7[0]==="player1")){
+		player1Win();
+	}
+	else if ((box3[0]==="player2") && (box5[0]==="player2") && (box7[0]==="player2")){
+		player2Win();
+	}
+
+}
 
 
 var box1 = [];
@@ -54,9 +116,8 @@ var box9IMG = document.getElementById("box9IMG");
 console.log("turn" + turn);
 
 
-
 box1IMG.onclick = function(){
-	
+
 	turnSelect();
 
 	if (player1turn == true){
@@ -75,6 +136,7 @@ box1IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box2IMG.onclick = function(){
@@ -97,6 +159,7 @@ box2IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box3IMG.onclick = function(){
@@ -119,6 +182,7 @@ box3IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box4IMG.onclick = function(){
@@ -141,6 +205,7 @@ box4IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box5IMG.onclick = function(){
@@ -163,6 +228,7 @@ box5IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box6IMG.onclick = function(){
@@ -185,6 +251,7 @@ box6IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box7IMG.onclick = function(){
@@ -207,6 +274,7 @@ box7IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box8IMG.onclick = function(){
@@ -229,6 +297,7 @@ box8IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 box9IMG.onclick = function(){
@@ -251,6 +320,7 @@ box9IMG.onclick = function(){
 	console.log("turn" + turn);
 
 	this.onclick = null;
+	checkWin()
 }
 
 

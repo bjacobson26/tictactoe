@@ -9,13 +9,13 @@ body {
 	margin-top: 2%;
 	margin-left: auto;
 	margin-right: auto;
-	border: 24px solid green;
+	border: 24px solid #FFE81F;
 	border-radius: 1%;
 }
 
 .verticalLines {
 	position: absolute;
-	background-color: green;
+	background-color: #FFE81F;
 	height: 100%;
 	width: 3%;
 }
@@ -31,7 +31,7 @@ body {
 
 .horizontalLines {
 	position: absolute;
-	background-color: green;
+	background-color: #FFE81F;
 	width: 100%;
 	height: 3%;
 }
