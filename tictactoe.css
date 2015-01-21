@@ -1,0 +1,120 @@
+body {
+	background-image: url("/Users/Bo/wdi/projects/tictactoe/tictactoe_images/space.jpg");
+}
+#container {
+	position: relative;
+	height: 800px;
+	width: 800px;
+	background-color: black;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 24px solid green;
+	border-radius: 1%;
+}
+
+.verticalLines {
+	position: absolute;
+	background-color: green;
+	height: 100%;
+	width: 3%;
+}
+
+#verline1 {
+  left: 33%;
+}
+
+#verline2 {
+	left: 66%;
+
+}
+
+.horizontalLines {
+	position: absolute;
+	background-color: green;
+	width: 100%;
+	height: 3%;
+}
+
+#horline1 {
+	top: 33%;
+}
+
+#horline2 {
+	top: 66%;
+}
+
+
+.img {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+#box1DIV {
+	position: absolute;
+	height: 33%;
+	width: 33%;
+}
+
+#box2DIV {
+	position: absolute;
+	height: 33%;
+	width: 30%;
+	left: 36%;
+}
+#box3DIV {
+	position: absolute;
+	height: 33%;
+	width: 31%;
+	left: 69%;
+}
+
+#box4DIV {
+	position: absolute;
+	height: 30%;
+	width: 33%;
+	top:36%;
+}
+
+#box5DIV {
+	position: absolute;
+	height: 30%;
+	width: 30%;
+	left: 36%;
+	top: 36%;
+}
+#box6DIV {
+	position: absolute;
+	height: 30%;
+	width: 31%;
+	left: 69%;
+	top: 36%;
+
+}
+
+#box7DIV {
+	position: absolute;
+	height: 31%;
+	width: 33%;
+	top:69%;
+}
+
+#box8DIV {
+	position: absolute;
+	height: 31%;
+	width: 30%;
+	left: 36%;
+	top: 69%;
+}
+#box9DIV {
+	position: absolute;
+	height: 31%;
+	width: 31%;
+	left: 69%;
+	top: 69%;
+
+}
+
+
+
+
