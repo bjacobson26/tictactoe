@@ -155,3 +155,43 @@ left: 5%;
 top: 36%;
 }
 
+#tieGame {
+	color: rgb(11, 0, 232);
+font-family: starjedi;
+font-size: 100px;
+position: absolute;
+left: 37.5%;
+top: 36%;
+}
+
+#force {
+	color: rgb(11, 0, 232);
+font-family: starjedi;
+font-size: 100px;
+position: absolute;
+left: 3.5%;
+top: 16%;
+text-align: center;
+z-index: 2;
+}
+#musicOnOffButton {
+	position: absolute;
+height: 45px;
+width: 129px;
+top: 22%;
+left: 5.5%;
+border-radius: 10%;
+color: white;
+border: 10px solid rgba(128, 128, 128, 0.81);
+background-color: rgba(255, 232, 31, 0.62);
+}
+
+#musicOnOff {
+	position: absolute;
+color: black;
+margin-left: auto;
+left: 10%;
+top: -9%;
+font-family: starjedi;
+font-size: 112%;
+}

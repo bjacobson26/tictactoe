@@ -1,13 +1,15 @@
 // reset button
-
 var reset = document.getElementById("resetButton");
 reset.onclick = function(){
+
 	location.reload();
+
 }
 
 // Winner!!!
 var yodaWins = document.getElementById("yodaWins");
 var darthWins = document.getElementById("darthWins");
+var draw = document.getElementById("tieGame");
 
 // images 
 var images = {
@@ -34,23 +36,34 @@ var turnSelect = function(){
 
 var winner = false;
 
+var musicOnOffButton = document.getElementById("musicOnOffButton");
+
+var musicPlay = false;
 
 
+var yodamusic = new Audio('yodamusic.mp3');
+var darthmusic = new Audio('darthmusic.mp3');
 
 var player1Win = function(){
 	winner = true;
 	yodaWins.innerHTML = "WoN, YoDA HAS!";
+	if (musicPlay==true){
+		yodamusic.play();
+	}
 }
 
 var player2Win = function(){
 	winner = true;
-	darthWins.innerHTML = "Darth vader Has Won!"
+	darthWins.innerHTML = "Darth vader Has Won!";
+	if (musicPlay==true){
+		darthmusic.play();
+	}
+	
 	
 }
 
 var tie = function(){
-	alert("TIE!");
-	location.reload();
+	draw.innerHTML = "DRaW";
 }
 
 // WIN LOGIC 
