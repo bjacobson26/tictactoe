@@ -1,3 +1,14 @@
+// reset button
+
+var reset = document.getElementById("resetButton");
+reset.onclick = function(){
+	location.reload();
+}
+
+// Winner!!!
+var yodaWins = document.getElementById("yodaWins");
+var darthWins = document.getElementById("darthWins");
+
 // images 
 var images = {
 	player1image: "tictactoe_images/yoda.gif",
@@ -20,13 +31,25 @@ var turnSelect = function(){
 	}
 }
 
+
+var winner = false;
+
+
+
+
 var player1Win = function(){
-	alert("YODA WINS");
-	location.reload();
+	winner = true;
+	yodaWins.innerHTML = "WoN, YoDA HAS!";
 }
 
 var player2Win = function(){
-	alert("DARTH VADER WINS");
+	winner = true;
+	darthWins.innerHTML = "Darth vader Has Won!"
+	
+}
+
+var tie = function(){
+	alert("TIE!");
 	location.reload();
 }
 
@@ -86,6 +109,10 @@ var checkWin = function(){
 	}
 	else if ((box3[0]==="player2") && (box5[0]==="player2") && (box7[0]==="player2")){
 		player2Win();
+	}
+
+	if((turn === 10) && (winner==false)){
+		tie();
 	}
 
 }

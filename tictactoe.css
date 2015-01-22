@@ -1,10 +1,11 @@
 body {
 	background-image: url("/Users/Bo/wdi/projects/tictactoe/tictactoe_images/space.jpg");
+	position: relative;
 }
 #container {
 	position: relative;
-	height: 800px;
-	width: 800px;
+	height: 600px;
+	width: 600px;
 	background-color: black;
 	margin-top: 2%;
 	margin-left: auto;
@@ -115,6 +116,42 @@ body {
 
 }
 
+#resetButton {
+position: absolute;
+height: 45px;
+width: 129px;
+top: 7%;
+left: 5.5%;
+border-radius: 10%;
+color: white;
+border: 10px solid rgba(128, 128, 128, 0.81);
+background-color: rgba(255, 232, 31, 0.62);
+}
 
+#reset {
+	position: absolute;
+color: black;
+margin-left: auto;
+left: 8%;
+top: -56%;
+font-family: starjedi;
+}
 
+#yodaWins {
+	color: rgb(22, 182, 22);
+font-family: starjedi;
+font-size: 100px;
+position: absolute;
+left: 16%;
+top: 36%;
+}
+
+#darthWins {
+	color: rgb(185, 0, 0);
+font-family: starjedi;
+font-size: 85px;
+position: absolute;
+left: 5%;
+top: 36%;
+}
 
