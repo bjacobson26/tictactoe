@@ -3,7 +3,6 @@ var reset = document.getElementById("resetButton");
 reset.onclick = function(){
 
 	location.reload();
-
 }
 
 // Winner!!!
@@ -17,6 +16,41 @@ var images = {
 	player2image: "tictactoe_images/darth6.gif"
 }
 
+// Sound & Music
+var musicPlay = true;
+var musicOnOffButton = document.getElementById("musicOnOffButton");
+var musicOnOffText = document.getElementById("musicOnOff");
+
+musicOnOffButton.onclick = function(){
+	if(musicPlay === false){
+		musicPlay = true;
+		console.log("musicPlay = " + musicPlay);
+		musicOnOffText.innerHTML = "Sound on";
+	}
+	else if(musicPlay === true){
+		musicPlay = false;
+		console.log("musicPlay = " + musicPlay);
+		musicOnOffText.innerHTML = "Sound off";
+	}
+}
+
+
+
+var sound = {
+	clip1: "tictactoe_sound/checked.mp3",
+	clip2: "tictactoe_sound/crops.mp3",
+	clip3: "tictactoe_sound/disturbance.mp3",
+	clip4: "tictactoe_sound/faith.mp3",
+	clip5: "tictactoe_sound/force.mp3",
+	clip6: "tictactoe_sound/force2.mp3",
+	clip7: "tictactoe_sound/luck.mp3",
+	clip8: "tictactoe_sound/master.mp3",
+	clip9: "tictactoe_sound/plans.mp3",
+	clip10: "tictactoe_sound/strong.mp3",
+}
+
+var yodamusic = new Audio('tictactoe_sound/yodamusic.mp3');
+var darthmusic = new Audio('tictactoe_sound/darthmusic.mp3');
 
 // Turn Selecting
 var player1turn = false;
@@ -33,16 +67,9 @@ var turnSelect = function(){
 	}
 }
 
+// Winner 
 
 var winner = false;
-
-var musicOnOffButton = document.getElementById("musicOnOffButton");
-
-var musicPlay = false;
-
-
-var yodamusic = new Audio('yodamusic.mp3');
-var darthmusic = new Audio('darthmusic.mp3');
 
 var player1Win = function(){
 	winner = true;
@@ -57,9 +84,7 @@ var player2Win = function(){
 	darthWins.innerHTML = "Darth vader Has Won!";
 	if (musicPlay==true){
 		darthmusic.play();
-	}
-	
-	
+	}	
 }
 
 var tie = function(){
@@ -131,6 +156,8 @@ var checkWin = function(){
 }
 
 
+
+// Fill with "player1" or "player2", then check for win. 
 var box1 = [];
 var box2 = [];
 var box3 = [];
@@ -141,7 +168,7 @@ var box7 = [];
 var box8 = [];
 var box9 = [];
 
-// // Image variables
+// Image Divs
 var box1IMG = document.getElementById("box1IMG");
 var box2IMG = document.getElementById("box2IMG");
 var box3IMG = document.getElementById("box3IMG");
@@ -152,10 +179,12 @@ var box7IMG = document.getElementById("box7IMG");
 var box8IMG = document.getElementById("box8IMG");
 var box9IMG = document.getElementById("box9IMG");
 
-
+// Logs turn number
 console.log("turn" + turn);
 
 
+
+// Gameplay 
 box1IMG.onclick = function(){
 
 	turnSelect();
