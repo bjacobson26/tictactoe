@@ -1,3 +1,7 @@
+
+
+
+
 // reset button
 var reset = document.getElementById("resetButton");
 reset.onclick = function(){
@@ -5,10 +9,15 @@ reset.onclick = function(){
 	location.reload();
 }
 
+
+
 // Winner!!!
 var yodaWins = document.getElementById("yodaWins");
 var darthWins = document.getElementById("darthWins");
 var draw = document.getElementById("tieGame");
+
+
+
 
 // images 
 var images = {
@@ -16,7 +25,18 @@ var images = {
 	player2image: "tictactoe_images/darth6.gif"
 }
 
+
+
 // Sound & Music
+
+//gets random number to decide which sound clip to play
+var getRand = function(){
+	var rand = Math.floor(Math.random()*10);
+	return rand;
+};
+var rand = getRand();
+
+
 var musicPlay = true;
 var musicOnOffButton = document.getElementById("musicOnOffButton");
 var musicOnOffText = document.getElementById("musicOnOff");
@@ -35,22 +55,71 @@ musicOnOffButton.onclick = function(){
 }
 
 
-
 var sound = {
-	clip1: "tictactoe_sound/checked.mp3",
-	clip2: "tictactoe_sound/crops.mp3",
-	clip3: "tictactoe_sound/disturbance.mp3",
-	clip4: "tictactoe_sound/faith.mp3",
-	clip5: "tictactoe_sound/force.mp3",
-	clip6: "tictactoe_sound/force2.mp3",
-	clip7: "tictactoe_sound/luck.mp3",
-	clip8: "tictactoe_sound/master.mp3",
-	clip9: "tictactoe_sound/plans.mp3",
-	clip10: "tictactoe_sound/strong.mp3",
+	clip1: new Audio('tictactoe_sound/checked.mp3'),
+	clip2: new Audio('tictactoe_sound/crops.mp3'),
+	clip3: new Audio('tictactoe_sound/disturbance.mp3'),
+	clip4: new Audio('tictactoe_sound/faith.mp3'),
+	clip5: new Audio('tictactoe_sound/force.mp3'),
+	clip6: new Audio('tictactoe_sound/force2.mp3'),
+	clip7: new Audio('tictactoe_sound/luck.mp3'),
+	clip8: new Audio('tictactoe_sound/master.mp3'),
+	clip9: new Audio('tictactoe_sound/plans.mp3'),
+	clip10: new Audio('tictactoe_sound/strong.mp3'),
 }
+console.log(rand);
+var playSoundClip = function(){
+	if(rand === 0){
+		sound.clip1.play();
+		console.log(sound.clip1);
+	}
+	else if(rand === 1){
+		sound.clip2.play();
+		console.log(sound.clip2);
+	}
+	else if(rand === 2){
+		sound.clip3.play();
+		console.log(sound.clip3);
+	}
+	else if(rand === 3){
+		sound.clip4.play();
+		console.log(sound.clip4);
+	}
+	else if(rand === 4){
+		sound.clip5.play();
+		console.log(sound.clip5);
+	}
+	else if(rand === 5){
+		sound.clip6.play();
+		console.log(sound.clip6);
+	}
+	else if(rand === 6){
+		sound.clip7.play();
+		console.log(sound.clip7);
+	}
+	else if(rand === 7){
+		sound.clip8.play();
+		console.log(sound.clip8);
+	}
+	else if(rand === 8){
+		sound.clip9.play();
+		console.log(sound.clip9);
+	}
+	else if(rand === 9){
+		sound.clip10.play();
+		console.log(sound.clip10);
+	}
+}
+playSoundClip();
+
 
 var yodamusic = new Audio('tictactoe_sound/yodamusic.mp3');
 var darthmusic = new Audio('tictactoe_sound/darthmusic.mp3');
+
+
+
+
+
 
 // Turn Selecting
 var player1turn = false;
@@ -66,6 +135,11 @@ var turnSelect = function(){
 		player1turn = false;
 	}
 }
+
+console.log("turn" + turn);
+
+
+
 
 // Winner 
 
@@ -90,6 +164,10 @@ var player2Win = function(){
 var tie = function(){
 	draw.innerHTML = "DRaW";
 }
+
+
+
+
 
 // WIN LOGIC 
 var checkWin = function(){
@@ -157,6 +235,7 @@ var checkWin = function(){
 
 
 
+
 // Fill with "player1" or "player2", then check for win. 
 var box1 = [];
 var box2 = [];
@@ -167,6 +246,9 @@ var box6 = [];
 var box7 = [];
 var box8 = [];
 var box9 = [];
+
+
+
 
 // Image Divs
 var box1IMG = document.getElementById("box1IMG");
@@ -179,8 +261,6 @@ var box7IMG = document.getElementById("box7IMG");
 var box8IMG = document.getElementById("box8IMG");
 var box9IMG = document.getElementById("box9IMG");
 
-// Logs turn number
-console.log("turn" + turn);
 
 
 

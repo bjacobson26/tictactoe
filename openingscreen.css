@@ -1,0 +1,80 @@
+body {
+	background-image: url("tictactoe_images/space.jpg");
+
+}
+
+#container {
+	position: relative;
+	height: 1000px;
+	width: 1000px;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 1%;
+
+}
+h1 {
+	text-align: center;
+	color: #36B8D7;
+	font-family: 'Nobile', sans-serif;
+	font-size: 50px;
+
+}
+
+h2 {
+	margin-top: -2%;
+	text-align: center;
+	color: #FFE81F;
+	font-family: starjedi;
+	font-size: 100px;
+}
+
+
+h3 {
+	text-align: center;
+color: #FFE81F;
+font-family: starjedi;
+font-size: 50px;
+margin-top: -10%;
+}
+
+p {
+	text-align: center;
+color: #FFE81F;
+font-family: starjedi;
+margin-left: 25%;
+margin-right: 25%;
+}
+
+
+
+h4 {
+	text-align: center;
+color: #FFE81F;
+font-family: starjedi;
+font-size: 100px;
+margin-top: 0%;
+margin-left: 33%;
+margin-right: 33%;
+
+}
+
+a {
+	text-decoration: none;
+	color: #FFE81F;
+}
+
+a:hover{
+	color: #36B8D7;
+}
+
+h5 {
+	text-align: center;
+color: #FFE81F;
+font-family: starjedi;
+font-size: 13px;
+margin-top: 0%;
+margin-left: 33%;
+margin-right: 33%;
+
+}
