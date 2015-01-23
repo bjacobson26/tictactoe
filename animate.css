@@ -704,6 +704,8 @@ Copyright (c) 2014 Daniel Eden
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
           animation-name: bounceInLeft;
+          -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
 }
 
 @-webkit-keyframes bounceInRight {
@@ -777,6 +779,8 @@ Copyright (c) 2014 Daniel Eden
 .bounceInRight {
   -webkit-animation-name: bounceInRight;
           animation-name: bounceInRight;
+          -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
 }
 
 @-webkit-keyframes bounceInUp {
@@ -1004,6 +1008,8 @@ Copyright (c) 2014 Daniel Eden
 .bounceOutRight {
   -webkit-animation-name: bounceOutRight;
           animation-name: bounceOutRight;
+          -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
 }
 
 @-webkit-keyframes bounceOutUp {
@@ -2626,6 +2632,8 @@ Copyright (c) 2014 Daniel Eden
 .zoomInLeft {
   -webkit-animation-name: zoomInLeft;
           animation-name: zoomInLeft;
+          -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
 }
 
 @-webkit-keyframes zoomInRight {
@@ -3162,4 +3170,14 @@ Copyright (c) 2014 Daniel Eden
 .slideOutUp {
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
+}
+
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+    40% {-webkit-transform: translateY(-60px);}
+    60% {-webkit-transform: translateY(-35px);}
+}
+.bounce_css
+{
+    -webkit-animation-name: bounce;
 }

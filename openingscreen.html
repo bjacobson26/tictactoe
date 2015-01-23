@@ -18,7 +18,8 @@
 
 
 
-<h4 class="animated zoomIn"><a href="tictactoe.html">Play!</a></h4>
+<h4 class="animated zoomIn"><a id="play" href="tictactoe.html">Play!</a></h4>
+
 
 
 
@@ -28,6 +29,20 @@
 </div>
 
 </div>
+
+
+<script type="text/javascript">
+	
+var play = document.getElementById("play");
+var lightsaber = new Audio('lightsaber_sounds/lightsaber1.mp3');
+
+
+play.onmouseover = function(){
+	lightsaber.play();
+}
+
+
+</script>
 
 </body>
 </html>
