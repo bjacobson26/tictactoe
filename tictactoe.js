@@ -57,63 +57,25 @@ musicOnOffButton.onclick = function(){
 }
 
 
-var sound = {
-	clip1: new Audio('tictactoe_sound/checked.mp3'),
-	clip2: new Audio('tictactoe_sound/crops.mp3'),
-	clip3: new Audio('tictactoe_sound/disturbance.mp3'),
-	clip4: new Audio('tictactoe_sound/faith.mp3'),
-	clip5: new Audio('tictactoe_sound/force.mp3'),
-	clip6: new Audio('tictactoe_sound/force2.mp3'),
-	clip7: new Audio('tictactoe_sound/luck.mp3'),
-	clip8: new Audio('tictactoe_sound/master.mp3'),
-	clip9: new Audio('tictactoe_sound/plans.mp3'),
-	clip10: new Audio('tictactoe_sound/strong.mp3'),
-}
+var sound = [
+	new Audio('tictactoe_sound/checked.mp3'),
+	new Audio('tictactoe_sound/crops.mp3'),
+	new Audio('tictactoe_sound/disturbance.mp3'),
+	new Audio('tictactoe_sound/faith.mp3'),
+	new Audio('tictactoe_sound/force.mp3'),
+	new Audio('tictactoe_sound/force2.mp3'),
+	new Audio('tictactoe_sound/luck.mp3'),
+	new Audio('tictactoe_sound/master.mp3'),
+	new Audio('tictactoe_sound/plans.mp3'),
+	 new Audio('tictactoe_sound/strong.mp3'),
+];
+
 console.log(rand);
 
 // beginning sound clip
 var playSoundClip = function(){
-	if(rand === 0){
-		sound.clip1.play();
-		console.log(sound.clip1);
+		sound[rand].play();
 	}
-	else if(rand === 1){
-		sound.clip2.play();
-		console.log(sound.clip2);
-	}
-	else if(rand === 2){
-		sound.clip3.play();
-		console.log(sound.clip3);
-	}
-	else if(rand === 3){
-		sound.clip4.play();
-		console.log(sound.clip4);
-	}
-	else if(rand === 4){
-		sound.clip5.play();
-		console.log(sound.clip5);
-	}
-	else if(rand === 5){
-		sound.clip6.play();
-		console.log(sound.clip6);
-	}
-	else if(rand === 6){
-		sound.clip7.play();
-		console.log(sound.clip7);
-	}
-	else if(rand === 7){
-		sound.clip8.play();
-		console.log(sound.clip8);
-	}
-	else if(rand === 8){
-		sound.clip9.play();
-		console.log(sound.clip9);
-	}
-	else if(rand === 9){
-		sound.clip10.play();
-		console.log(sound.clip10);
-	}
-}
 playSoundClip();
 
 
@@ -178,7 +140,6 @@ var c3po = document.getElementById("c3p0");
 var c3poSounds = {
 	sound1: new Audio('c3po_sounds/c3posound1.mp3'),
 	sound2: new Audio('c3po_sounds/c3posound2.mp3'),
-	sound3: new Audio('c3po_sounds/c3posound3.mp3'),
 	sound4: new Audio('c3po_sounds/c3posound4.mp3'),
 	sound5: new Audio('c3po_sounds/c3posound5.mp3'),
 }
@@ -218,16 +179,13 @@ var lightSaberSounds = {
 
 
 // Turn Selecting
-var player1turn = false;
-var player2turn = false;
+var player1turn;
 var turn = 1;	
 var turnSelect = function(){
 	if(turn % 2 == 1){
 		player1turn = true;
-		player2turn = false;
 	}
 	else {
-		player2turn = true;
 		player1turn = false;
 	}
 }
@@ -263,88 +221,51 @@ var tie = function(){
 
 
 
-
-
 // WIN LOGIC 
 var checkWin = function(){
 	// horizontal wins
-	if((box1[0] === "player1") && (box2[0]==="player1") && (box3[0]==="player1")){
+	if((box[0] == box[1] && box[0] == box[2] && box[0] != 0) ||
+	   (box[0] == box[3] && box[0] == box[6] && box[0] != 0) ||
+	   (box[0] == box[4] && box[0] == box[8] && box[0] != 0)){
+	   	// Find out who won -- all three of these have box[0] in common
+	   if(box[0] == "player1")
 		player1Win();
+	   else
+	   	player2Win();
 	}
-	else if ((box1[0] === "player2") && (box2[0]==="player2") && (box3[0]==="player2")){
-		player2Win();
-	}
-	else if ((box4[0]==="player1") && (box5[0]==="player1") && (box6[0]==="player1")){
+	else if(box[1] == box[4] && box[1] == box[7] && box[1] != 0){
+	   	// Find out who won -- all three of these have box[0] in common
+	   if(box[1] == "player1")
 		player1Win();
+	   else
+	   	player2Win();
 	}
-	else if ((box4[0]==="player2") && (box5[0]==="player2") && (box6[0]==="player2")){
-		player2Win();
-	}
-	else if((box7[0]==="player1") && (box8[0]==="player1") && (box9[0]==="player1")){
+	else if((box[2] == box[5] && box[2] == box[8] && box[2] != 0) || 
+		   (box[2] == box[4] && box[2] == box[6] && box[2] != 0)){
+	   	// Find out who won -- all three of these have box[0] in common
+	   if(box[2] == "player1")
 		player1Win();
+	   else
+	   	player2Win();
 	}
-	else if((box7[0]==="player2") && (box8[0]==="player2") && (box9[0]==="player2")){
-		player2Win();
-	}
-
-	// vertical wins
-
-	else if((box1[0]==="player1") && (box4[0]==="player1") && (box7[0]==="player1")){
+	else if(box[3] == box[4] && box[3] == box[5] && box[3] != 0){
+	   	// Find out who won -- all three of these have box[0] in common
+	   if(box[3] == "player1")
 		player1Win();
+	   else
+	   	player2Win();
 	}
-	else if((box1[0]==="player2") && (box4[0]==="player2") && (box7[0]==="player2")){
-		player2Win();
-	}
-	else if ((box2[0]==="player1") && (box5[0]==="player1") && (box8[0]==="player1")){
+	else if(box[6] == box[7] && box[6] == box[8] && box[6] != 0){
+	   	// Find out who won -- all three of these have box[0] in common
+	   if(box[6] == "player1")
 		player1Win();
-	}
-	else if ((box2[0]==="player2") && (box5[0]==="player2") && (box8[0]==="player2")){
-		player2Win();
-	}
-	else if ((box3[0]==="player1") && (box6[0]==="player1") && (box9[0]==="player1")){
-		player1Win();
-	}
-	else if ((box3[0]==="player2") && (box6[0]==="player2") && (box9[0]==="player2")){
-		player2Win();
-	}
-
-	// diagonal
-
-	else if ((box1[0]==="player1") && (box5[0]==="player1") && (box9[0]==="player1")){
-		player1Win();
-	}
-	else if ((box1[0]==="player2") && (box5[0]==="player2") && (box9[0]==="player2")){
-		player2Win();
-	}
-	else if ((box3[0]==="player1") && (box5[0]==="player1") && (box7[0]==="player1")){
-		player1Win();
-	}
-	else if ((box3[0]==="player2") && (box5[0]==="player2") && (box7[0]==="player2")){
-		player2Win();
-	}
-
-	if((turn === 10) && (winner==false)){
-		tie();
-	}
-
+	   else
+	   	player2Win();
+	} 	
 }
 
-
-
-
 // Fill with "player1" or "player2", then check for win. 
-var box1 = [];
-var box2 = [];
-var box3 = [];
-var box4 = [];
-var box5 = [];
-var box6 = [];
-var box7 = [];
-var box8 = [];
-var box9 = [];
-
-
-
+var box = [0,0,0,0,0,0,0,0,0];
 
 // Image Divs
 var box1IMG = document.getElementById("box1IMG");
@@ -359,274 +280,38 @@ var box9IMG = document.getElementById("box9IMG");
 
 
 
+var boxClick = function(){
+	turnSelect();
+	if (player1turn == true){
+	  this.src = images.player1image;
+	  box[(parseInt(this.id[3])-1)] = "player1";
+	  playSomething(lightSaberSounds.yoda);
+    }
+    else {
+	  this.src = images.player2image;
+	  box[(parseInt(this.id[3])-1)] = "player2";
+	  playSomething(lightSaberSounds.darth);
+	}
+	turn++;
+	this.onclick = null;
+	checkWin();
+	console.log(box);
+};
+	
+
+var playSomething = function(sound){
+	if(musicPlay === true){
+		sound.play();
+	}
+}
 
 // Gameplay 
-box1IMG.onclick = function(){
-
-	turnSelect();
-
-	if (player1turn == true){
-		this.src = images.player1image;
-		box1.push("player1");
-		console.log("box1 = " + box1);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box1.push("player2");
-		console.log("box1 = " + box1);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box2IMG.onclick = function(){
-
-	turnSelect();
-
-	if (player1turn == true){
-		this.src = images.player1image;
-		box2.push("player1");
-		console.log("box2 = " + box2);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box2.push("player2");
-		console.log("box2 = " + box2);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box3IMG.onclick = function(){
-
-	turnSelect();
-
-	if (player1turn == true){
-		this.src = images.player1image;
-		box3.push("player1");
-		console.log("box3 = " + box3);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-
-	}
-	else{
-		this.src = images.player2image;
-		box3.push("player2");
-		console.log("box3 = " + box3);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box4IMG.onclick = function(){
-
-	turnSelect();
-	
-	if (player1turn == true){
-		this.src = images.player1image;
-		box4.push("player1");
-		console.log("box4 = " + box4);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box4.push("player2");
-		console.log("box4 = " + box4);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box5IMG.onclick = function(){
-
-	turnSelect();
-	
-	if (player1turn == true){
-		this.src = images.player1image;
-		box5.push("player1");
-		console.log("box5 = " + box5);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box5.push("player2");
-		console.log("box5 = " + box5);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box6IMG.onclick = function(){
-
-	turnSelect();
-	
-	if (player1turn == true){
-		this.src = images.player1image;
-		box6.push("player1");
-		console.log("box6 = " + box6);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box6.push("player2");
-		console.log("box6 = " + box6);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box7IMG.onclick = function(){
-
-	turnSelect();
-	
-	if (player1turn == true){
-		this.src = images.player1image;
-		box7.push("player1");
-		console.log("box7 = " + box7);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box7.push("player2");
-		console.log("box7 = " + box7);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box8IMG.onclick = function(){
-
-	turnSelect();
-
-	if (player1turn == true){
-		this.src = images.player1image;
-		box8.push("player1");
-		console.log("box8 = " + box8);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box8.push("player2");
-		console.log("box8 = " + box8);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-box9IMG.onclick = function(){
-
-	turnSelect();
-	
-	if (player1turn == true){
-		this.src = images.player1image;
-		box9.push("player1");
-		console.log("box9 = " + box9);
-		if (musicPlay === true){
-			lightSaberSounds.yoda.play();
-		}
-	}
-	else{
-		this.src = images.player2image;
-		box9.push("player2");
-		console.log("box9 = " + box9);
-		if(musicPlay === true){
-		lightSaberSounds.darth.play();
-		}
-	};
-
-	turn++;
-
-	console.log("turn" + turn);
-
-	this.onclick = null;
-	checkWin()
-}
-
-
-
-
-
-
-
-
+box1IMG.onclick = boxClick;
+box2IMG.onclick = boxClick;
+box3IMG.onclick = boxClick;
+box4IMG.onclick = boxClick;
+box5IMG.onclick = boxClick;
+box6IMG.onclick = boxClick;
+box7IMG.onclick = boxClick;
+box8IMG.onclick = boxClick;
+box9IMG.onclick = boxClick;
